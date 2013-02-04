@@ -8,6 +8,7 @@
     "ipsum",
     "lipsum"
   ],
+  "main": "lib/LibroIpsum.js",
   "author": "Andrew Duthie <andrew@andrewduthie.com>",
   "license": "MIT",
   "devDependencies": {
