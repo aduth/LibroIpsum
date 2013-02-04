@@ -1,0 +1,20 @@
+{
+  "name": "LibroIpsum",
+  "version": "0.1.0",
+  "description": "Generates phrases using character distribution of text",
+  "keywords": [
+    "libro",
+    "lorem",
+    "ipsum",
+    "lipsum"
+  ],
+  "author": "Andrew Duthie <andrew@andrewduthie.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.0rc7",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-contrib-coffee": "~0.4.0",
+    "grunt-contrib-concat": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1"
+  }
+}
