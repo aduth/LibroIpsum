@@ -1,5 +1,5 @@
 {
-  "name": "LibroIpsum",
+  "name": "libroipsum",
   "version": "0.1.0",
   "description": "Generates phrases using character distribution of text",
   "keywords": [

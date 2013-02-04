@@ -6,7 +6,7 @@
 # Use LibroIpsum from Node.js, RequireJS, or directly in the browser.
 
 # ### Node.js
-#     npm install LibroIpsum
+#     npm install libroipsum
 # ### RequireJS
 #     define(['path/to/libs/LibroIpsum.js'],
 #     function(LibroIpsum) {
