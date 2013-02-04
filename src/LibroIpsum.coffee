@@ -1,3 +1,5 @@
+# [View on GitHub](http://github.com/aduth/LibroIpsum)
+
 # LibroIpsum is a simple placeholder text generator similar to other [lorem ipsum](http://en.wikipedia.org/wiki/Lorem_ipsum) tools.
 # LibroIpsum differs from traditional lorem ipsum in that it can be used to generate random phrases from any source text, using character distribution analysis to generate new phrases.
 
