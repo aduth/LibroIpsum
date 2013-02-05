@@ -217,7 +217,7 @@ do ->
 
     # Object.keys polyfill (ES5)
     Object.keys ?= (obj) ->
-        key for key of keys when obj.hasOwnProperty(key)
+        key for key of obj when obj.hasOwnProperty(key)
 
     # ## Expose LibroIpsum
 
