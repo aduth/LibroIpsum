@@ -37,6 +37,7 @@ do ->
             '(', ')'
             '{', '}'
             '«', '»'
+            '\r', '\n'
         ]
 
         # Sentence-ending characters. Used to locate phrase-starting key
