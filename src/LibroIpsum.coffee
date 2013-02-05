@@ -5,14 +5,14 @@
 
 # Use LibroIpsum from Node.js, RequireJS, or directly in the browser.
 
-# ### Node.js
+# ## Node.js
 #     npm install libroipsum
-# ### RequireJS
+# ## RequireJS
 #     define(['path/to/libs/LibroIpsum.js'],
 #     function(LibroIpsum) {
 #         // ...
 #     });
-# ### Browser
+# ## Browser
 #     <script src="path/to/libs/LibroIpsum.js"></script>
 
 # # Usage
@@ -24,7 +24,7 @@
 
 #
 do ->
-    #### LibroIpsum
+    # ## LibroIpsum
     # Generates phrases using character distribution of text from a given string
     class LibroIpsum
         # Ignore opening and closing punctuation because of difficulty to ensure matching pair
@@ -113,7 +113,7 @@ do ->
             return null unless @frequencyLib.getFrequencies(key)
             @frequencyLib.randomUniformChoose(key)
 
-    #### MultiSet
+    # ## MultiSet
     # A set in which members can appear more than once
     class MultiSet
         #
@@ -164,7 +164,7 @@ do ->
                 if choice < 0
                     return key
 
-    #### FrequencyLibrary
+    # ## FrequencyLibrary
     # Helper class for tracking character distribution following keys, and choosing random character based upon distribution.
     class FrequencyLibrary
         #
@@ -219,7 +219,7 @@ do ->
     Object.keys ?= (obj) ->
         key for key of keys when obj.hasOwnProperty(key)
 
-    #### Expose LibroIpsum
+    # ## Expose LibroIpsum
 
     # Add to global object
     this.LibroIpsum = LibroIpsum
