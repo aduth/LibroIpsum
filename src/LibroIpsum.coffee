@@ -59,11 +59,11 @@ do ->
 
         # Return randomly generated phrase with `numberOfWords` words based on character distribution of text, using key length `keyLength`
         generate: (numberOfWords, keyLength = 6) ->
-            currentWords = 0
+            currentWords = 1
             workingKey = @getKey(keyLength)
             phrase = workingKey
 
-            while currentWords <= numberOfWords
+            while currentWords < numberOfWords
                 distributedChar = @getDistributedChar(workingKey)
                 if distributedChar?
                     workingKey += distributedChar
