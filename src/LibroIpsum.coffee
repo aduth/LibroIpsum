@@ -68,9 +68,12 @@ do ->
                 if distributedChar?
                     workingKey += distributedChar
                     workingKey = workingKey.slice(1)
-                else if currentWords + 1 <= numberOfWords
-                    workingKey = @getKey(keyLength)
-                    distributedChar = " #{workingKey}"
+                else
+                    phrase = phrase.replace /\s+$/, ''
+                    distributedChar = ' '
+                    if currentWords + 1 <= numberOfWords
+                        workingKey = @getKey(keyLength)
+                        distributedChar += workingKey
 
                 phrase += distributedChar
                 currentWords++ if /\s/.test(distributedChar)
