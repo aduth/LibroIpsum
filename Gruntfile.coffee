@@ -28,7 +28,7 @@ module.exports = (grunt) ->
 
         watch:
             files: 'src/LibroIpsum.coffee'
-            tasks: ['coffee']
+            tasks: ['compile']
 
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-concat'
