@@ -59,6 +59,8 @@ do ->
 
         # Return randomly generated phrase with `numberOfWords` words based on character distribution of text, using key length `keyLength`
         generate: (numberOfWords, keyLength = 6) ->
+            return '' unless numberOfWords > 0
+
             currentWords = 1
             workingKey = @getKey(keyLength)
             phrase = workingKey

@@ -23,6 +23,9 @@
         <span class="k">if</span> <span class="p">(</span><span class="nx">keyLength</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">keyLength</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
         <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">numberOfWords</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
         <span class="nx">currentWords</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
         <span class="nx">workingKey</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getKey</span><span class="p">(</span><span class="nx">keyLength</span><span class="p">);</span>
         <span class="nx">phrase</span> <span class="o">=</span> <span class="nx">workingKey</span><span class="p">;</span>
