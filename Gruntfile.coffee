@@ -41,6 +41,5 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-docco'
 
-    grunt.registerTask 'compile', ['coffee', 'concat']
+    grunt.registerTask 'compile', ['coffee', 'concat', 'uglify', 'docco']
     grunt.registerTask 'default', ['compile', 'watch']
-    grunt.registerTask 'release', ['compile', 'uglify', 'docco']
