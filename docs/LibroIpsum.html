@@ -29,26 +29,24 @@
         <span class="nx">workingKey</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getKey</span><span class="p">(</span><span class="nx">keyLength</span><span class="p">);</span>
         <span class="nx">currentWords</span> <span class="o">=</span> <span class="p">(</span><span class="nx">workingKey</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">)</span> <span class="o">||</span> <span class="p">[]).</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
         <span class="nx">phrase</span> <span class="o">=</span> <span class="nx">workingKey</span><span class="p">;</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nx">currentWords</span> <span class="o">&lt;</span> <span class="nx">numberOfWords</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">currentWords</span> <span class="o">&lt;=</span> <span class="nx">numberOfWords</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">distributedChar</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getDistributedChar</span><span class="p">(</span><span class="nx">workingKey</span><span class="p">);</span>
           <span class="k">if</span> <span class="p">(</span><span class="nx">distributedChar</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">workingKey</span> <span class="o">+=</span> <span class="nx">distributedChar</span><span class="p">;</span>
             <span class="nx">workingKey</span> <span class="o">=</span> <span class="nx">workingKey</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="sr">/\s/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">distributedChar</span><span class="p">))</span> <span class="p">{</span>
+              <span class="nx">currentWords</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
           <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
             <span class="nx">phrase</span> <span class="o">=</span> <span class="nx">phrase</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s+$/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
-            <span class="nx">distributedChar</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">currentWords</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">numberOfWords</span><span class="p">)</span> <span class="p">{</span>
-              <span class="nx">workingKey</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getKey</span><span class="p">(</span><span class="nx">keyLength</span><span class="p">);</span>
-              <span class="nx">distributedChar</span> <span class="o">+=</span> <span class="nx">workingKey</span><span class="p">;</span>
-            <span class="p">}</span>
+            <span class="nx">workingKey</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getKey</span><span class="p">(</span><span class="nx">keyLength</span><span class="p">);</span>
+            <span class="nx">distributedChar</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">workingKey</span><span class="p">;</span>
+            <span class="nx">currentWords</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">workingKey</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">)</span> <span class="o">||</span> <span class="p">[]).</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
           <span class="p">}</span>
           <span class="nx">phrase</span> <span class="o">+=</span> <span class="nx">distributedChar</span><span class="p">;</span>
-          <span class="k">if</span> <span class="p">(</span><span class="sr">/\s/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">distributedChar</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">currentWords</span><span class="o">++</span><span class="p">;</span>
-          <span class="p">}</span>
         <span class="p">}</span>
         <span class="nx">rCleanEnd</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">&quot;[\\\\&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">LibroIpsum</span><span class="p">.</span><span class="nx">clauseSeparators</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\\\\&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;\\s]*$&quot;</span><span class="p">);</span>
-        <span class="nx">phrase</span> <span class="o">=</span> <span class="nx">phrase</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">rCleanEnd</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">;</span>
+        <span class="nx">phrase</span> <span class="o">=</span> <span class="nx">phrase</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">numberOfWords</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="nx">rCleanEnd</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">;</span>
         <span class="k">return</span> <span class="nx">phrase</span><span class="p">;</span>
       <span class="p">};</span>
 

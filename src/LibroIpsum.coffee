@@ -65,23 +65,25 @@ do ->
             currentWords = (workingKey.match(/\s/g) or []).length + 1
             phrase = workingKey
 
-            while currentWords < numberOfWords
+            while currentWords <= numberOfWords
                 distributedChar = @getDistributedChar(workingKey)
                 if distributedChar?
                     workingKey += distributedChar
                     workingKey = workingKey.slice(1)
+                    currentWords++ if /\s/.test(distributedChar)
                 else
                     phrase = phrase.replace /\s+$/, ''
-                    distributedChar = ' '
-                    if currentWords + 1 <= numberOfWords
-                        workingKey = @getKey(keyLength)
-                        distributedChar += workingKey
+                    workingKey = @getKey(keyLength)
+                    distributedChar = " #{workingKey}"
+                    currentWords += (workingKey.match(/\s/g) or []).length + 1
 
                 phrase += distributedChar
-                currentWords++ if /\s/.test(distributedChar)
 
             rCleanEnd = new RegExp("[\\\\#{LibroIpsum.clauseSeparators.join('\\\\')}\\s]*$")
-            phrase = phrase.replace(rCleanEnd, '') + '.'
+            phrase = phrase.split(' ')
+                .slice(0, numberOfWords)
+                .join(' ')
+                .replace(rCleanEnd, '') + '.'
 
             phrase
 
