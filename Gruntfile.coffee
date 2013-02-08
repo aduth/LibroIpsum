@@ -35,7 +35,7 @@ module.exports = (grunt) ->
 
         docco:
             debug:
-                src: ['lib/LibroIpsum.js']
+                src: ['src/lib/LibroIpsum.coffee']
                 dest: 'docs/'
 
         mocha:
