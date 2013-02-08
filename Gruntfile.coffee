@@ -30,11 +30,17 @@ module.exports = (grunt) ->
             files: 'src/LibroIpsum.coffee'
             tasks: ['compile']
 
+        docco:
+            debug:
+                src: ['lib/LibroIpsum.js']
+                dest: 'docs/'
+
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-watch'
+    grunt.loadNpmTasks 'grunt-docco'
 
     grunt.registerTask 'compile', ['coffee', 'concat']
     grunt.registerTask 'default', ['compile', 'watch']
-    grunt.registerTask 'release', ['compile', 'uglify']
+    grunt.registerTask 'release', ['compile', 'uglify', 'docco']
