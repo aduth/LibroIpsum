@@ -11,6 +11,10 @@
   "main": "lib/LibroIpsum.js",
   "author": "Andrew Duthie <andrew@andrewduthie.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aduth/LibroIpsum.git"
+  },
   "devDependencies": {
     "grunt": "~0.4.0rc7",
     "grunt-contrib-watch": "~0.2.0",
