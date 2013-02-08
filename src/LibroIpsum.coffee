@@ -61,8 +61,8 @@ do ->
         generate: (numberOfWords, keyLength = 6) ->
             return '' unless numberOfWords > 0
 
-            currentWords = 1
             workingKey = @getKey(keyLength)
+            currentWords = (workingKey.match(/\s/g) or []).length + 1
             phrase = workingKey
 
             while currentWords < numberOfWords
@@ -91,7 +91,7 @@ do ->
             return '' if !length
 
             concatSentenceEnders = "\\\\#{LibroIpsum.sentenceEnders.join('\\\\')}"
-            rKey = new RegExp("(^[A-Z][a-z]{#{length - 1}}|[#{concatSentenceEnders}]\\s*[A-Z][a-z]{#{length - 1}})", 'gm');
+            rKey = new RegExp("(^[A-Z].{#{length - 1}}|[#{concatSentenceEnders}]\\s*[A-Z].{#{length - 1}})", 'gm');
             keyMatch = @sourceText.match(rKey)
 
             if keyMatch
