@@ -1,10 +1,10 @@
-# LibroIpsum
+# Libro Ipsum
 
-LibroIpsum is a simple placeholder text generator similar to other [lorem ipsum](http://en.wikipedia.org/wiki/Lorem_ipsum) tools. LibroIpsum differs from traditional lorem ipsum in that it can be used to generate random phrases from any source text, using character distribution analysis to generate new phrases.
+Libro Ipsum is a simple placeholder text generator similar to other [lorem ipsum](http://en.wikipedia.org/wiki/Lorem_ipsum) tools. Libro Ipsum differs from traditional lorem ipsum in that it can be used to generate random phrases from any source text, using character distribution analysis to generate new phrases.
 
 [View annotated source code](http://aduth.github.com/LibroIpsum)
 
-Use LibroIpsum from Node.js, RequireJS, or directly in the browser.
+Use Libro Ipsum from Node.js, RequireJS, or directly in the browser.
 
 ### Node.js
     npm install libroipsum
