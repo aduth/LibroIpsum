@@ -41,6 +41,20 @@ _Obama-Romney Debates (October 2012)_
 
 > Veterans who were out the public lands than a year or two ago, we went first lady has said that lead nowhere it is also this debates, months with unemployed right that will always be the governor Romney because I think it's more that America as the same as Simpson as a man for you absolutely think interesting here. And when I sit down artificially our very expenses when the side of the hands of criminals, that we're.
 
+## How it works
+
+"Character distribution analysis" is a bit cryptic, so here's an example:
+
+![Libro Ipsum illustration](http://libroipsum.com/css/img/howitworks.png)
+
+Libro Ipsum begins by choosing a seed of `keyLength` characters. In this example, we'll use a key length of 3. Note that seeds which start a sentence are given preference. Of the candidates available, one is chosen at random. Since we have only two sentences, and both start with "The", this is guaranteed to be the key.
+
+After a seed is chosen, Libro Ipsum will scan the text to find every instance of this key (in this case, there are two instances of "The"). A new character will then be chosen to add to the current generated phrase based upon the probility of the character appearing following the key. For "The", there is an equal chance that it will be followed by a ' ' (space) or an 'n'. Let's assume it randomly chooses 'n'. This character is added to the phrase (now "Then"), and the key is updated to the latest 3 characters (now "hen").
+
+Looking at the second line, Libro Ipsum will continue to choose new characters using the same process outlined above. With the key "hen", there are two instances, and both are followed by ' ' (space). Therefore, there is a 100% chance this character will be chosen. The phrase is now "Then ", and the key is "en ".
+
+A new word has been created (delimited by a space character), and Libro Ipsum will continue this process until the desired number of words has been reached.
+
 ## License
 
 Copyright (c) 2013 Andrew Duthie
